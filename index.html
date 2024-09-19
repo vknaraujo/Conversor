@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Conversor de bases numéricas</title>
+  </head>
+
+  <style>
+    @font-face {
+      font-family: monocraft;
+      font-weight: normal;
+      src: url("Monocraft-no-ligatures.ttc") format("TTC");
+    }
+    @font-face {
+      font-family: monocraft;
+      font-weight: bold;
+      src: url("Monocraft-no-ligatures.ttc") format("TTC");
+    }
+
+    :root,
+    body {
+      font-family: monocraft !important;
+    }
+
+    .title {
+      border: solid 4px;
+      background-color: aliceblue;
+      border-color: skyblue;
+      height: 80px;
+      width: 500px;
+      border-radius: 25px;
+      align-content: center;
+    }
+
+    .container {
+      width: fit-content;
+      border: solid 4px;
+      background-color: aliceblue;
+      border-color: skyblue;
+      height: fit-content;
+      padding: 40px;
+      border-radius: 50px;
+      animation: fadeInLeftBig;
+      animation-duration: 0.5s;
+    }
+
+    .botao {
+      border: solid 4px;
+      background-color: aliceblue;
+      border-color: skyblue;
+      font-family: monocraft;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* gap: 20px; */
+      height: 60px;
+      width: 150px;
+      margin-top: 30px;
+      border-radius: 20px;
+      font-size: 20px;
+      background-color: #ffffff;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .botao:hover {
+      height: 80px;
+      width: 170px;
+      opacity: 0.9;
+    }
+
+    .select {
+      font-family: monocraft;
+      border: solid 3px;
+      border-color: skyblue;
+      margin-top: 30px;
+      height: 30px;
+      width: fit-content;
+      border-radius: 10px;
+      font-size: 15px;
+      background-color: #ffffff;
+    }
+    .inp {
+      font-family: monocraft;
+      border: solid 3px;
+      border-color: skyblue;
+      margin-top: 30px;
+      height: 23px;
+      width: fit-content;
+      border-radius: 10px;
+      font-size: 15px;
+      background-color: #ffffff;
+    }
+
+    .erro {
+      color: red;
+      font-size: large;
+    }
+  </style>
+
+  <body bgcolor="#18181B">
+    <center>
+      <h1 class="title">Lucas's & Vitor's Machine</h1>
+      <br /><br />
+      <div class="container">
+        <h2 id="mensagemBaseSelecionada">Decimal</h2>
+        <input
+          class="inp"
+          id="inputUsuario"
+          type="text"
+          placeholder="Ex: 20920928"
+        />
+        <select class="select" id="opcaoEscolhida" onselect="selecionado()">
+          <option value="baseDecimal">Decimal</option>
+          <option value="baseBinaria">Binária</option>
+          <option value="baseOctal">Octal</option>
+          <option value="baseHexa">Hexadecimal</option>
+        </select>
+        <br />
+        <button class="botao" onclick="converter()">Converter</button>
+        <br /><br />
+        <div id="divMensagem"></div>
+      </div>
+    </center>
+  </body>
+</html>
+<script>
+  function converter() {
+    const numeroBase = inputUsuario.value;
+
+    const escolhaBase = opcaoEscolhida.value;
+
+    var baseDecimal = 0;
+
+    var baseBinaria = 0;
+
+    var baseOctal = 0;
+
+    var baseHexa = 0;
+
+    var erro = `<span class="erro">ERRO! Numero inválido</span>`;
+
+    if (escolhaBase === "baseDecimal") {
+      if (numeroBase < 0) {
+        divMensagem.innerHTML = erro;
+      } else {
+        mensagemBaseSelecionada.innerHTML = "Decimal";
+
+        baseDecimal = Number(numeroBase);
+
+        baseBinaria = baseDecimal.toString(2);
+        baseOctal = baseDecimal.toString(8);
+        baseHexa = baseDecimal.toString(16);
+
+        divMensagem.innerHTML = `Numero convertido ! <br> Base decimal: ${baseDecimal} <br>
+        Base binaria: ${baseBinaria} <br>
+        Base octal: ${baseOctal} <br> Base hexadecimal: ${baseHexa}`;
+      }
+    }
+    if (escolhaBase === "baseOctal") {
+      if (numeroBase < 0 || numeroBase == 8 || numeroBase == 9) {
+        divMensagem.innerHTML = erro;
+      } else {
+        mensagemBaseSelecionada.innerHTML = "Octal";
+        baseDecimal = parseInt(numeroBase, 8);
+
+        baseBinaria = baseDecimal.toString(2);
+        baseHexa = baseDecimal.toString(16);
+        baseOctal = numeroBase;
+
+        divMensagem.innerHTML = `Numero convertido ! <br> Base decimal: ${baseDecimal} <br>
+            Base binaria: ${baseBinaria} <br>
+            Base octal: ${baseOctal} <br> Base hexadecimal: ${baseHexa}`;
+      }
+    }
+    if (escolhaBase === "baseHexa") {
+      var letrasValidas = ["f", "a", "b", "c", "d", "e"];
+
+      numeroBase.toString();
+
+      if (numeroBase < 0 || !letrasValidas.includes(numeroBase)) {
+        divMensagem.innerHTML = erro;
+      } else {
+        mensagemBaseSelecionada.innerHTML = "Hexadecimal";
+
+        baseDecimal = parseInt(numeroBase, 16);
+
+        baseBinaria = baseDecimal.toString(2);
+        baseHexa = numeroBase;
+        baseOctal = baseDecimal.toString(8);
+
+        divMensagem.innerHTML = `Numero convertido ! <br> Base decimal: ${baseDecimal} <br>
+            Base binaria: ${baseBinaria} <br>
+           Base octal: ${baseOctal} <br> Base hexadecimal: ${baseHexa}`;
+      }
+    }
+    if (escolhaBase === "baseBinaria") {
+      if (numeroBase < 0 || numeroBase != 1 || numeroBase != 0) {
+        divMensagem.innerHTML = erro;
+      }
+
+      mensagemBaseSelecionada.innerHTML = "Binária";
+      baseDecimal = parseInt(numeroBase, 2);
+
+      baseBinaria = numeroBase;
+      baseHexa = baseDecimal.toString(16);
+      baseOctal = baseDecimal.toString(8);
+
+      divMensagem.innerHTML = `Numero convertido ! <br> Base decimal: ${baseDecimal} <br>
+            Base binaria: ${baseBinaria} <br>
+           Base octal: ${baseOctal} <br> Base hexadecimal: ${baseHexa}`;
+    }
+  }
+</script>
