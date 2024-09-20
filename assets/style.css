@@ -1,0 +1,81 @@
+@font-face {
+	font-family: monocraft;
+	src: url("/assets/Monocraft-no-ligatures.ttc") format("truetype");
+}
+
+.title {
+	font-family: monocraft;
+	border: solid 4px;
+	background-color: aliceblue;
+	border-color: skyblue;
+	height: 80px;
+	width: 500px;
+	border-radius: 25px;
+	align-content: center;
+}
+
+.container {
+	font-family: monocraft;
+	width: fit-content;
+	border: solid 4px;
+	background-color: aliceblue;
+	border-color: skyblue;
+	height: fit-content;
+	padding: 40px;
+	border-radius: 50px;
+	animation: fadeInLeftBig;
+	animation-duration: 0.5s;
+}
+
+.botao {
+	border: solid 4px;
+	background-color: aliceblue;
+	border-color: skyblue;
+	font-family: monocraft;
+  font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* gap: 20px; */
+	height: 60px;
+	width: 150px;
+	margin-top: 30px;
+	border-radius: 20px;
+	font-size: 20px;
+	background-color: #ffffff;
+	transition: all 0.5s ease-in-out;
+}
+
+.botao:hover {
+	height: 80px;
+	width: 170px;
+	opacity: 0.9;
+}
+
+.select {
+	font-family: monocraft;
+	border: solid 3px;
+	border-color: skyblue;
+	margin-top: 30px;
+	height: 30px;
+	width: fit-content;
+	border-radius: 10px;
+	font-size: 15px;
+	background-color: #ffffff;
+}
+.inp {
+	font-family: monocraft;
+	border: solid 3px;
+	border-color: skyblue;
+	margin-top: 30px;
+	height: 23px;
+	width: fit-content;
+	border-radius: 10px;
+	font-size: 15px;
+	background-color: #ffffff;
+}
+
+.erro {
+	color: red;
+	font-size: large;
+}
