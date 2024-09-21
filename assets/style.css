@@ -1,13 +1,14 @@
 @font-face {
 	font-family: monocraft;
-	src: url("/assets/Monocraft-no-ligatures.ttc") format("truetype");
+	src: url("Monocraft-no-ligatures.ttc") format("truetype");
 }
 
 .title {
 	font-family: monocraft;
 	border: solid 4px;
-	background-color: aliceblue;
-	border-color: skyblue;
+	border-color: #0e4429;
+	background-color: #151b23;
+	color: white;
 	height: 80px;
 	width: 500px;
 	border-radius: 25px;
@@ -15,47 +16,60 @@
 }
 
 .container {
+	color: white;
 	font-family: monocraft;
 	width: fit-content;
-	border: solid 4px;
-	background-color: aliceblue;
-	border-color: skyblue;
 	height: fit-content;
+	border-bottom: solid 10px;
+	border-top: solid 10px;
+	border-color: #25a541;
+	background-color: #0d1016;
 	padding: 40px;
-	border-radius: 50px;
+	/* border-radius: 25px;   */
 	animation: fadeInLeftBig;
 	animation-duration: 0.5s;
-}
+
+	box-shadow:
+	/* -4px 0 0 -2px #25a541, 4px 0 0 -2px #25a541, */
+	-8px 0 0 -4px #25a541, 8px 0 0 -4px #25a541,
+	/* -12px 0 0 -6px #25a541, 12px 0 0 -6px #25a541, */
+	-16px 0 0 -8px #25a541, 16px 0 0 -8px #25a541,
+	/* -20px 0 0 -10px #25a541, 20px 0 0 -10px #25a541, */
+	-24px 0 0 -12px #25a541, 24px 0 0 -12px #25a541;
+;}
 
 .botao {
 	border: solid 4px;
-	background-color: aliceblue;
-	border-color: skyblue;
+	border-color: #151b23;
+	background-color: #151b23;
+	color: #25a541;
 	font-family: monocraft;
-  font-weight: bold;
+	font-weight: bold;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	/* gap: 20px; */
+	gap: 20px;
 	height: 60px;
 	width: 150px;
 	margin-top: 30px;
 	border-radius: 20px;
 	font-size: 20px;
-	background-color: #ffffff;
 	transition: all 0.5s ease-in-out;
 }
 
 .botao:hover {
 	height: 80px;
 	width: 170px;
-	opacity: 0.9;
+	/* opacity: 0.9; */
+	background-color: #25a541;
+	border-color: #25a541;
+	color: #151b23;
 }
 
 .select {
 	font-family: monocraft;
 	border: solid 3px;
-	border-color: skyblue;
+	border-color: #25a541;
 	margin-top: 30px;
 	height: 30px;
 	width: fit-content;
